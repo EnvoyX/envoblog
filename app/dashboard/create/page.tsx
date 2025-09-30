@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { handleSubmit } from "@/action/action";
+import { SubmitButton } from "@/components/SubmitButton";
 import {
   Card,
   CardContent,
@@ -19,20 +20,34 @@ function CreateBlogPage() {
           <CardDescription>Create a new post to share.</CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" action={handleSubmit}>
             <div className="flex flex-col gap-2">
               <Label>Title</Label>
-              <Input required placeholder="Aura Farming Title" type="text" />
+              <Input
+                name="title"
+                required
+                placeholder="Aura Farming Title"
+                type="text"
+              />
             </div>
             <div className="flex flex-col gap-2">
               <Label>Content</Label>
-              <Textarea required placeholder="Your yapping contents" />
+              <Textarea
+                name="content"
+                required
+                placeholder="Your yapping contents"
+              />
             </div>
             <div className="flex flex-col gap-2">
               <Label>Image URL</Label>
-              <Input required type="url" placeholder="https://imagesource..." />
+              <Input
+                name="url"
+                required
+                type="url"
+                placeholder="https://imagesource..."
+              />
             </div>
-            <Button type="submit">Submit</Button>
+            <SubmitButton></SubmitButton>
           </form>
         </CardContent>
       </Card>

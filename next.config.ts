@@ -10,6 +10,26 @@ const nextConfig: NextConfig = {
         port: "",
       },
       {
+        hostname: "external-preview.redd.it",
+        protocol: "https",
+        port: "",
+      },
+      {
+        hostname: "avatars.githubusercontent.com",
+        protocol: "https",
+        port: "",
+      },
+      {
+        hostname: "lh3.googleusercontent.com",
+        protocol: "https",
+        port: "",
+      },
+      {
+        hostname: "images.unsplash.com",
+        protocol: "https",
+        port: "",
+      },
+      {
         hostname: "assetsio.gnwcdn.com",
         protocol: "https",
         port: "",
