@@ -7,11 +7,12 @@ import { redirect } from "next/navigation";
 export async function handleSubmit(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+  if (!user) return redirect("/api/auth/register");
 
   const title = formData.get("title") as string;
   const content = formData.get("content") as string;
   const imageUrl = formData.get("url") as string;
-  const data = await prisma.blogPost.create({
+  await prisma.blogPost.create({
     data: {
       title,
       content,

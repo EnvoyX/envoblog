@@ -1,4 +1,4 @@
-import { handleSubmit } from "@/action/action";
+import { handleSubmit } from "@/actions/actions";
 import { SubmitButton } from "@/components/SubmitButton";
 import {
   Card,
