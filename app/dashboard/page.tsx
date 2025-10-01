@@ -9,11 +9,15 @@ async function DashboardPage() {
   const user = await getUser();
   const datas = await getUserPosts(user?.id as string);
   return (
-    <div>
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-medium">Your Blog Posts</h2>
+    <main className="py-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold tracking-tight mb-8">
+          Your Blog Posts
+        </h1>
         <Link
-          className={buttonVariants({ variant: "default" })}
+          className={`${buttonVariants({
+            variant: "default",
+          })} hover:scale-105 mb-8 transition-all`}
           href="/dashboard/create"
         >
           Create Post
@@ -24,7 +28,7 @@ async function DashboardPage() {
           <BlogPostCard key={data.id} data={data} />
         ))}
       </div>
-    </div>
+    </main>
   );
 }
 
