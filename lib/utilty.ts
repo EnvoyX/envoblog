@@ -20,6 +20,15 @@ export async function getDatas() {
   return datas;
 }
 
+export async function getPostById(id: string) {
+  const data = await prisma.blogPost.findUnique({
+    where: {
+      id: id,
+    },
+  });
+  return data;
+}
+
 export async function getUserPosts(userId: string) {
   const datas = await prisma.blogPost.findMany({
     where: {
