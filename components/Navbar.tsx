@@ -7,6 +7,8 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { buttonVariants } from "./ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import NavButton from "./NavButton";
+import Image from "next/image";
 
 export async function Navbar() {
   const { getUser } = getKindeServerSession();
@@ -20,25 +22,30 @@ export async function Navbar() {
           </h1>
         </Link>
         <div className="hidden sm:flex items-center gap-6">
-          <Link
-            className="text-sm font-medium hover:text-teal-500 transition-colors"
-            href={"/"}
-          >
-            Home
-          </Link>
-          <Link
-            className="text-sm font-medium hover:text-teal-500 transition-colors"
-            href={"/dashboard"}
-          >
-            Dashboard
-          </Link>
+          <NavButton message="Home" href="/" />
+          <NavButton message="Dashboard" href="/dashboard" />
         </div>
       </div>
       <div className="flex items-center gap-4">
         {user ? (
           <div className="flex items-center gap-4">
-            <p className="font-bold">{user.given_name}</p>
-            <LogoutLink className={buttonVariants({ variant: "destructive" })}>
+            <div className="flex items-center gap-2">
+              <div className="relative size-10">
+                <Image
+                  src={user.picture as string}
+                  alt={user.given_name as string}
+                  className="object-cover rounded-full"
+                  fill
+                />
+              </div>
+              <p className="font-bold">{user.given_name}</p>
+            </div>
+            <DarkModeToggle />
+            <LogoutLink
+              className={`${buttonVariants({
+                variant: "destructive",
+              })} hover:scale-105 `}
+            >
               Logout
             </LogoutLink>
           </div>
@@ -52,7 +59,6 @@ export async function Navbar() {
             </RegisterLink>
           </div>
         )}
-        <DarkModeToggle />
       </div>
     </nav>
   );

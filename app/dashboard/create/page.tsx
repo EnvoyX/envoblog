@@ -13,10 +13,10 @@ import { Label } from "@radix-ui/react-dropdown-menu";
 
 function CreateBlogPage() {
   return (
-    <div>
-      <Card className="max-w-lg mx-auto">
+    <div className="h-screen flex justify-center items-center">
+      <Card className="w-2xl mx-auto mb-52">
         <CardHeader>
-          <CardTitle>Craete Post</CardTitle>
+          <CardTitle>Create Post</CardTitle>
           <CardDescription>Create a new post to share.</CardDescription>
         </CardHeader>
         <CardContent>
