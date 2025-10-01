@@ -17,12 +17,12 @@ interface BlogPostCardProps {
 
 function BlogPostCard({ data }: BlogPostCardProps) {
   return (
-    <div className="group relative overflow-hidden rounded-lg border-gray-200 bg-white dark:bg-slate-900 shadow-md dark:shadow-slate-700 transition-all hover:shadow-lg">
+    <div className="group relative overflow-hidden rounded-lg border-gray-200 bg-white dark:bg-slate-900 shadow-md dark:shadow-slate-700 transition-all hover:shadow-lg hover:scale-105">
       <Link href={`/post/${data.id}`} className="block w-full h-full">
         <div className="relative h-48 w-full overflow-hidden">
           <Image
             src={data.imageUrl}
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-300"
             alt="Image for Block"
             fill
           />
