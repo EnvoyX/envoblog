@@ -6,7 +6,7 @@ import { Suspense } from "react";
 async function BlogPosts() {
   const datas = await getDatas();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {datas.map((data) => (
         <BlogPostCard data={data} key={data.id} />
       ))}

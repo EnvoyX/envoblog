@@ -6,16 +6,23 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 
 export function DarkModeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme, systemTheme } = useTheme();
   function themeSwitcher() {
-    if (theme === "dark") {
+    const currentTheme = theme === "system" ? systemTheme : theme;
+    if (currentTheme === "dark") {
       setTheme("light");
-    } else if (theme === "light") {
+    } else {
       setTheme("dark");
     }
+    return currentTheme;
   }
   return (
-    <Button variant="outline" size="icon" onClick={themeSwitcher}>
+    <Button
+      variant="outline"
+      className="cursor-pointer hover:scale-105"
+      size="icon"
+      onClick={themeSwitcher}
+    >
       {theme === "dark" ? (
         <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
       ) : (
