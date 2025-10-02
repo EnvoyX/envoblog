@@ -3,6 +3,8 @@ import { BlogPostsGridSkeleton } from "@/components/BlogPostsGridSkeleton";
 import { getDatas } from "@/lib/utilty";
 import { Suspense } from "react";
 
+export const revalidate = 60;
+
 async function BlogPosts() {
   const datas = await getDatas();
   return (
